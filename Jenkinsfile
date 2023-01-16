@@ -31,7 +31,7 @@ pipeline {
                                                        }
         stage('Publish image to Docker Hub') {
                                                           steps {
-                                                             withDockerRegistry([ credentialsId: "Varsha-Docker-Cren", url: "" ]) {
+                                                             withDockerRegistry([ credentialsId: "VarshaDockerId", url: "" ]) {
                                                              sh 'docker push vmna11/mynginx1'
                                                              
                                                               }
