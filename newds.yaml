@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
     - name: nginx-container
-      image: docker.io/snehalahire123/mynginx1:latest
+      image: docker.io/vmna11/mynginx1:latest
       ports:
         - containerPort: 80
 ---
