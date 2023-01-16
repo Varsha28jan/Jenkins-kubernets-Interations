@@ -31,10 +31,11 @@ pipeline {
                                                        }
         stage('Publish image to Docker Hub') {
                                                           steps {
-                                                             withDockerRegistry([ credentialsId: "VarshaDockerId", url: "" ]) {
-                                                             sh 'docker push vmna11/mynginx1'
-                                                             
-                                                              }
+                                                             withDockerRegistry([ credentialsId: "VarshaDockerId", url: "" ]) 
+                                                            {
+                                                             // sh 'docker push vmna11/mynginx1'
+                                                              dockerImage.push()
+                                                            }
                                                               }
                                                               }
              
