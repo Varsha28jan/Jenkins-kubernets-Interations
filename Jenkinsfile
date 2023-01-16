@@ -29,7 +29,7 @@ pipeline {
                                                 
                                                        }
                                                        }
-        stage('Publish image to Docker Hub') {
+     /*   stage('Publish image to Docker Hub') {
                                                           steps {
                                                              withDockerRegistry([ credentialsId: "VarshaDockerId", url: "" ]) 
                                                             {
@@ -37,7 +37,18 @@ pipeline {
                                                               dockerImage.push()
                                                             }
                                                               }
-                                                              }
+                                                              } */
+              
+         stage('Deploy Image') {
+           steps{
+             script {
+               withDockerRegistry([ credentialsId: "VarshaDockerId", url: "" ]) 
+               {
+               dockerImage.push()
+                }
+                   }
+               }
+           }
              
               
               
