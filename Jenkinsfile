@@ -40,20 +40,10 @@ pipeline {
                                                               }
                                                               } 
               
-        /* stage('Deploy Image') {
-           steps{
-             script {
-               withDockerRegistry([ credentialsId: "VarshaDockerId", url: "" ]) 
-               {
-               dockerImage.push()
-                }
-                   }
-               }
-           }
-             
+       
               
               
-         /*     stage('Deploy to kubernetes cluster') {
+           stage('Deploy to kubernetes cluster') {
                                      steps {
                                                echo 'continuous deployment'
                                        withKubeConfig([credentialsId: 'testconfig'])
@@ -71,7 +61,7 @@ pipeline {
               }
               
               
-       //stage('deploy to rancher') {
+      /* //stage('deploy to rancher') {
          //echo 'deployment'
          //withKubeConfig([credentialsId: 'rancherkubeconfig', serverUrl: 'https://3.109.117.88']) {
          //sh 'kubectl apply -f /var/lib/jenkins/workspace/Final/deploymentservice.yaml'
