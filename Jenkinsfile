@@ -46,7 +46,7 @@ pipeline {
            stage('Deploy to kubernetes cluster') {
                                      steps {
                                                echo 'continuous deployment'
-                                       withKubeConfig([credentialsId: 'testconfig'])
+                                       withKubeConfig([credentialsId: 'Kube-config-file'])
        {
      
          //sh 'kubectl get pods'
