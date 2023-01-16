@@ -15,7 +15,7 @@ pipeline {
                                                }
                          stage('git clone') {
                                               steps {
-                                                git credentialsId: 'Varsha-Git', url: 'https://github.com/Varsha28jan/Jenkins-kubernets-Interations.git'
+                                                 git branch: 'main',  git credentialsId: 'Varsha-Git', url: 'https://github.com/Varsha28jan/Jenkins-kubernets-Interations.git'
                                                 sh 'ls'
                                                 sh 'pwd'
                                                         }
