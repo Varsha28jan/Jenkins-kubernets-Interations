@@ -25,21 +25,22 @@ pipeline {
                                               steps {
                                                   
                                                 sh 'docker build -t mynginx .'
-                                                 sh 'docker tag mynginx vmna11/mynginx1'
+                                                sh 'docker tag mynginx vmna11/mynginx1'
+                                                sh 'docker images'
                                                 
                                                        }
                                                        }
-     /*   stage('Publish image to Docker Hub') {
-                                                          steps {
+        stage('Publish image to Docker Hub') {
+                                               steps {
                                                              withDockerRegistry([ credentialsId: "VarshaDockerId", url: "" ]) 
                                                             {
-                                                             // sh 'docker push vmna11/mynginx1'
-                                                              dockerImage.push()
+                                                               sh 'docker push vmna11/mynginx1'
+                                                            //  dockerImage.push()
                                                             }
                                                               }
-                                                              } */
+                                                              } 
               
-         stage('Deploy Image') {
+        /* stage('Deploy Image') {
            steps{
              script {
                withDockerRegistry([ credentialsId: "VarshaDockerId", url: "" ]) 
