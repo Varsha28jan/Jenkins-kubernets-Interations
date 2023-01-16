@@ -3,7 +3,7 @@
 pipeline {
                           agent any
                             environment {  
-                            registry = "docker.io/snehalahire123" 
+                            registry = "docker.io/vmna11" 
                             registryCredential = 'dockerhub' 
                              dockerImage = ''
                                                  }
@@ -15,7 +15,7 @@ pipeline {
                                                }
                          stage('git clone') {
                                               steps {
-                                         git credentialsId: 'githubclass', url: 'https://github.com/ahiresnehal/Nginx-app.git'
+                                         git credentialsId: 'Varsha-Git-Cren', url: 'https://github.com/Varsha28jan/Jenkins-kubernets-Interations.git'
                                                 sh 'ls'
                                                 sh 'pwd'
                                                         }
@@ -25,14 +25,14 @@ pipeline {
                                               steps {
                                                   
                                                 sh 'docker build -t mynginx .'
-                                                 sh 'docker tag mynginx snehalahire123/mynginx1'
+                                                 sh 'docker tag mynginx vmna11/mynginx1'
                                                 
                                                        }
                                                        }
         stage('Publish image to Docker Hub') {
                                                           steps {
-                                                             withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-                                                             sh 'docker push snehalahire123/mynginx1'
+                                                             withDockerRegistry([ credentialsId: "Varsha-Docker-Cren", url: "" ]) {
+                                                             sh 'docker push vmna11/mynginx1'
                                                              
                                                               }
                                                               }
@@ -40,7 +40,7 @@ pipeline {
              
               
               
-              stage('Deploy to kubernetes cluster') {
+         /*     stage('Deploy to kubernetes cluster') {
                                      steps {
                                                echo 'continuous deployment'
                                        withKubeConfig([credentialsId: 'testconfig'])
